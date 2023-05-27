@@ -5,8 +5,6 @@ namespace Tests\Feature\API;
 use App\Http\Resources\FindVehicleResource;
 use App\Models\User;
 use App\Models\Vehicle;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Tymon\JWTAuth\Facades\JWTAuth;
 

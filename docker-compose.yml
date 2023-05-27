@@ -1,8 +1,9 @@
 version: '3'
 services:
     laravel.test:
+        container_name: api_laravel
         build:
-            context: ./vendor/laravel/sail/runtimes/8.2
+            context: ./api/vendor/laravel/sail/runtimes/8.2
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
@@ -19,9 +20,22 @@ services:
             XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
             IGNITION_LOCAL_SITES_PATH: '${PWD}'
         volumes:
-            - '.:/var/www/html'
+            - './api:/var/www/html'
         networks:
             - sail
+
+    front:
+        container_name: front_react
+        image: node:18.16.0-alpine3.17
+        working_dir: "/home/node/front"
+        user: "node"
+        ports:
+            - 3000:3000
+        volumes:
+            - './front:/home/node/front'
+        networks:
+            - sail
+        command: "tail -f /dev/null"
 networks:
     sail:
         driver: bridge
