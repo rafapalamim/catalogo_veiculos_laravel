@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,13 +15,44 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test', function (Request $request, Response $response) {
-    $response
-        ->setContent(['hi'])
-        ->setStatusCode(200)
-        ->send();
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function () {
+    Route::post('login', [AuthController::class, "login"]);
 });
 
-Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
-    return $request->user();
+// Sem autenticação:
+// Vehicle: Lista, Buscar
+// Painel: Login
+
+// Com autenticação
+// Vehicle: cadastrar, editar, deletar
+// Painel: controles do sistema
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'vehicle'
+], function () {
+
+    // Listar
+    Route::get('', [VehicleController::class, "list"]);
+
+    // Visualizar
+    Route::get('{id}', [VehicleController::class, "find"]);
+});
+
+Route::group([
+    'middleware' => 'auth:api',
+    'prefix' => 'vehicle'
+], function () {
+
+    // Cadastrar
+    Route::post('', [VehicleController::class, "store"]);
+
+    // Editar
+    Route::put('/{id}', [VehicleController::class, "update"]);
+
+    // Deletar
+    Route::delete('/{id}', [VehicleController::class, "destroy"]);
 });
