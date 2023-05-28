@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -28,5 +30,7 @@ class DatabaseSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ]);
         }
+
+        Vehicle::factory(10)->create();
     }
 }

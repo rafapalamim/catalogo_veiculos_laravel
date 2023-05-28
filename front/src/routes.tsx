@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Site from './templates/Site'
+import Login from './pages/Login'
 
 
 export default function AppRoutes() {
@@ -8,7 +9,7 @@ export default function AppRoutes() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Site><Home /></Site>}></Route>
-                <Route path="/login" Component={() => <h1>login</h1>}></Route>
+                <Route path="/login" element={<Login />}></Route>
             </Routes>
         </BrowserRouter>
     )

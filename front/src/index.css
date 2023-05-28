@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    @apply h-full;
+}
+div#root {
+    @apply h-full;
+}
+body {
+    @apply h-full;
+}
+
+.form-group{
+    @apply mb-6;
+    @apply w-full;
+}
+
+.form-group > label {
+    @apply block;
+    @apply mb-2;
+}
