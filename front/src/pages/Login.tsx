@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "../api/Axios";
+import { AuthenticatedContext } from "../contexts/AuthenticatedContext";
 
 export default function Login() {
+
+    const auth = useContext(AuthenticatedContext);
 
     const classInput = "w-full border shadow-sm shadow-gray-400 rounded py-2 px-3";
 
@@ -18,11 +21,11 @@ export default function Login() {
 
         axios
             .post('/auth/login', data)
-            .then(response => {
-                console.log(response);
+            .then(() => {
+                auth.setLogin();
             })
             .catch(error => {
-                console.error(error);
+                console.error('e', error);
             });
     }
 
