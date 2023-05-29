@@ -24,7 +24,6 @@ export const AuthenticatedProvider = ({ children }: AuthenticatedType) => {
             .get('/auth/status')
             .then(() => {
                 setIsLogged(true);
-                navigate("/painel");
             })
             .catch(() => {
                 setIsLogged(false);
