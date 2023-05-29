@@ -20,4 +20,39 @@ body {
 .form-group > label {
     @apply block;
     @apply mb-2;
+    @apply font-bold;
+}
+
+.input-item {
+    @apply shadow-sm rounded px-4 py-2 w-full shadow-gray-800;
+}
+
+.btn {
+    @apply px-4 py-2 rounded;
+}
+
+.btn-xs {
+    @apply text-xs;
+}
+
+
+.btn.btn-green {
+    @apply bg-green-600;
+    @apply hover:bg-green-900;
+    @apply text-white;
+    @apply transition-colors;
+}
+
+.btn.btn-blue {
+    @apply bg-blue-600;
+    @apply hover:bg-blue-900;
+    @apply text-white;
+    @apply transition-colors;
+}
+
+.btn.btn-red {
+    @apply bg-red-600;
+    @apply hover:bg-red-900;
+    @apply text-white;
+    @apply transition-colors;
 }

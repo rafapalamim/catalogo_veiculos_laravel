@@ -1,6 +1,6 @@
 type ActionButtonsType = {
     name: string,
-    color: string,
+    style: string,
     handleOnClick: () => void
 }
 
@@ -20,12 +20,11 @@ export default function ListItem(props: ItemType) {
                 <p className="text-gray-500">{props.subtitle}</p>
             </div>
             <div className="flex flex-row gap-2">
-                {props.actionButtons.map((button) => {
-                    const style = `bg-${button.color}-500 hover:bg-${button.color}-800 px-4 py-2 rounded text-white transition-colors text-xs`;
+                {props.actionButtons.map((button: ActionButtonsType) => {
                     return (
                         <button
                             key={button.name}
-                            className={style}
+                            className={button.style}
                             onClick={button.handleOnClick}
                         >{button.name}</button>
                     )
