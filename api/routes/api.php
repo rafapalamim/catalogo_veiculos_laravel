@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group([
-    'middleware' => 'api',
+    'middleware' => 'cookie.auth:auth:api',
     'prefix' => 'auth'
 ], function () {
     Route::post('login', [AuthController::class, "login"]);
+    Route::get('status', [AuthController::class, "isLogged"]);
 });
 
 // Sem autenticação:
@@ -39,11 +40,11 @@ Route::group([
     Route::get('', [VehicleController::class, "list"]);
 
     // Visualizar
-    Route::get('{id}', [VehicleController::class, "find"]);
+    Route::get('/{id}', [VehicleController::class, "find"]);
 });
 
 Route::group([
-    'middleware' => 'auth:api',
+    'middleware' => 'cookie.auth:auth:api',
     'prefix' => 'vehicle'
 ], function () {
 
