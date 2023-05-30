@@ -50,6 +50,7 @@ Route::group([
 
     // Cadastrar
     Route::post('', [VehicleController::class, "store"]);
+    Route::post('/photo/{id}', [VehicleController::class, "newPhoto"]);
 
     // Editar
     Route::put('/{id}', [VehicleController::class, "update"]);

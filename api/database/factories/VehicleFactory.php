@@ -26,7 +26,7 @@ class VehicleFactory extends Factory
             'nome' => $faker->vehicle,
             'marca' => $faker->vehicleBrand,
             'modelo' => $faker->vehicleModel,
-            'foto' => '/path/to/image',
+            'foto' => 'default.jpg',
             'valor' => $faker->numerify("#####.##")
         ];
     }

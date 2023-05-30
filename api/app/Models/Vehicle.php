@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\FileCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,6 +19,7 @@ class Vehicle extends Model
     ];
 
     protected $casts = [
-        'valor' => 'float'
+        'valor' => 'float',
+        'foto' => FileCast::class
     ];
 }

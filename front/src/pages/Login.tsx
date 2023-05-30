@@ -1,15 +1,23 @@
 import React, { useContext, useState } from "react";
 import axios from "../api/Axios";
 import { AuthenticatedContext } from "../contexts/AuthenticatedContext";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Login() {
 
     const auth = useContext(AuthenticatedContext);
+    const navigate = useNavigate();
 
     const classInput = "w-full border shadow-sm shadow-gray-400 rounded py-2 px-3";
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    if (auth.isLogged) {
+        navigate('/painel/veiculos');
+    }
+
 
     function login(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();

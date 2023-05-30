@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateVehicleRequest extends FormRequest
+class VehiclePhotoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,7 @@ class CreateVehicleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "nome" => ["required", "string"],
-            "marca" => ["required", "string"],
-            "modelo" => ["required", "string"],
-            "foto" => ["required", "file"],
-            "valor" => ["required", "numeric", "gt:0"]
+            "foto" => ["required", "file"]
         ];
     }
 }

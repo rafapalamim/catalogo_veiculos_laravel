@@ -56,3 +56,7 @@ body {
     @apply text-white;
     @apply transition-colors;
 }
+
+.Toastify__toast-body{
+    white-space: pre-line;
+}

@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import axios from "./../api/Axios";
 import { createContext, useEffect, useState } from "react";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 type ContextType = {
     isLogged: boolean
@@ -33,11 +35,21 @@ export const AuthenticatedProvider = ({ children }: AuthenticatedType) => {
 
     function setLogin() {
         setIsLogged(true);
-        navigate("/painel");
+        navigate("/painel/veiculos");
     }
 
     return (
         <AuthenticatedContext.Provider value={{ isLogged, setLogin }}>
+            <ToastContainer position="top-right"
+                autoClose={2500}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={true}
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable
+                pauseOnHover={false}
+                theme="colored" />
             {children}
         </AuthenticatedContext.Provider>
     )

@@ -25,7 +25,6 @@ class UpdateVehicleRequest extends FormRequest
             "nome" => ["sometimes", "required", "string", "min:1"],
             "marca" => ["sometimes", "required", "string", "min:1"],
             "modelo" => ["sometimes", "required", "string", "min:1"],
-            "foto" => ["sometimes", "required", "string", "min:1"],
             "valor" => ["sometimes", "required", "numeric", "gt:0"]
         ];
     }
