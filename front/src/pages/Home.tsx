@@ -35,7 +35,7 @@ export default function Home() {
 
     return (
         <Site>
-            <div className="flex flex-row flex-wrap container mx-auto mt-4 items-baseline justify-around gap-4">
+            <div className="flex flex-row flex-wrap container mx-auto mt-0 items-start">
                 {veiculos.map((veiculo) => {
                     return <CarItem key={veiculo.id} nome={veiculo.nome} marca={veiculo.marca} modelo={veiculo.modelo} valor={veiculo.valor} foto={veiculo.foto} />
                 })}

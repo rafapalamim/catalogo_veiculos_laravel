@@ -60,3 +60,8 @@ body {
 .Toastify__toast-body{
     white-space: pre-line;
 }
+
+.invisible-scrollbar::-webkit-scrollbar{
+    scrollbar-width: none;
+    display: none;
+}
