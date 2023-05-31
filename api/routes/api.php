@@ -16,23 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group([
-    'middleware' => 'cookie.auth:auth:api',
     'prefix' => 'auth'
 ], function () {
     Route::post('login', [AuthController::class, "login"]);
-    Route::get('status', [AuthController::class, "isLogged"]);
+    Route::get('status', [AuthController::class, "isLogged"])->middleware('auth');
 });
 
-// Sem autenticação:
-// Vehicle: Lista, Buscar
-// Painel: Login
-
-// Com autenticação
-// Vehicle: cadastrar, editar, deletar
-// Painel: controles do sistema
 
 Route::group([
-    'middleware' => 'api',
     'prefix' => 'vehicle'
 ], function () {
 
@@ -40,21 +31,15 @@ Route::group([
     Route::get('', [VehicleController::class, "list"]);
 
     // Visualizar
-    Route::get('/{id}', [VehicleController::class, "find"]);
-});
-
-Route::group([
-    'middleware' => 'cookie.auth:auth:api',
-    'prefix' => 'vehicle'
-], function () {
+    Route::get('/{id}', [VehicleController::class, "find"])->middleware('auth');
 
     // Cadastrar
-    Route::post('', [VehicleController::class, "store"]);
-    Route::post('/photo/{id}', [VehicleController::class, "newPhoto"]);
+    Route::post('', [VehicleController::class, "store"])->middleware('auth');
+    Route::post('/photo/{id}', [VehicleController::class, "newPhoto"])->middleware('auth');
 
     // Editar
-    Route::put('/{id}', [VehicleController::class, "update"]);
+    Route::put('/{id}', [VehicleController::class, "update"])->middleware('auth');
 
     // Deletar
-    Route::delete('/{id}', [VehicleController::class, "destroy"]);
+    Route::delete('/{id}', [VehicleController::class, "destroy"])->middleware('auth');
 });

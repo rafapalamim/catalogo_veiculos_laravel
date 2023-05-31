@@ -12,12 +12,10 @@ export default function AppRoutes() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />}></Route>
-                <Route path="/:id" element={<Home />}></Route>
                 <Route path="/login" element={<AuthenticatedProvider><Login /></AuthenticatedProvider>}></Route>
                 <Route path="/painel/veiculos" element={<AuthenticatedProvider><VeiculosLista /></AuthenticatedProvider>}></Route>
                 <Route path="/painel/veiculos/:id" element={<AuthenticatedProvider><VeiculosEditar /></AuthenticatedProvider>}></Route>
                 <Route path="/painel/veiculos/adicionar" element={<AuthenticatedProvider><VeiculosAdicionar /></AuthenticatedProvider>}></Route>
-
             </Routes>
         </BrowserRouter>
     )
