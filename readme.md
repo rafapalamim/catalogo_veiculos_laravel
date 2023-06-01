@@ -17,3 +17,10 @@ Execute o comando deploy.sh
 > bash deploy.sh
 
 O front-end será servido em http://localhost:3000
+
+# Área administrativa
+
+usuário: admin@verzel.com
+senha: password
+
+Esse acesso foi criado no processo de seed, crio também 10 veículos por padrão
