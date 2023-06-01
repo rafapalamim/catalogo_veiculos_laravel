@@ -26,16 +26,13 @@ services:
 
     front:
         container_name: front_react
-        image: node:18.16.0-alpine3.17
-        working_dir: "/home/node/front"
-        user: "node"
+        build:
+            context: .
+            dockerfile: ./front/Dockerfile
         ports:
             - 3000:3000
-        volumes:
-            - './front:/home/node/front'
         networks:
             - sail
-        command: "tail -f /dev/null"
 networks:
     sail:
         driver: bridge
