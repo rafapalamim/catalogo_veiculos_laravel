@@ -24,5 +24,5 @@ sudo docker exec -it api_laravel php artisan migrate:fresh
 sudo docker exec -it api_laravel php artisan db:seed
 
 # Build da estrutura do react
-sudo docker exec -it front_react yarn install
-sudo docker exec -it front_react yarn build
+#sudo docker exec -it front_react yarn install
+#sudo docker exec -it front_react yarn build
